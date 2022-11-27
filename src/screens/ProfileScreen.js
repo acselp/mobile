@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ProfileItem from '../components/ProfileItem';
 
 const ProfileScreen = () => {

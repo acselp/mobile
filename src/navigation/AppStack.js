@@ -26,21 +26,11 @@ const AppStack = () => {
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: '#333',
         drawerLabelStyle: {
-          marginLeft: 0,
+          marginRight: -20,
           fontFamily: 'Roboto-Medium',
           fontSize: 15,
         },
       }}>
-     
-      <Drawer.Screen
-        name="Profil"
-        component={ProfileScreen}
-        options={{
-          drawerIcon: ({color}) => (
-            <Ionicons name="person-outline" size={22} color={color} />
-          ),
-        }}
-      />
       <Drawer.Screen
         name="Apa"
         component={WaterScreen}
@@ -50,6 +40,16 @@ const AppStack = () => {
           ),
         }}
       />
+      <Drawer.Screen
+        name="Profil"
+        component={ProfileScreen}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="person-outline" size={22} color={color} />
+          ),
+        }}
+      />
+     
       <Drawer.Screen
         name="Salubrizare"
         component={MomentsScreen}

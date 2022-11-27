@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 function ProfileItem(props) {
