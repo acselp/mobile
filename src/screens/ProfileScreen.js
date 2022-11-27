@@ -1,11 +1,20 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import ProfileItem from '../components/ProfileItem';
 
 const ProfileScreen = () => {
   return (
-    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-      <Text>Profile Screen</Text>
-    </View>
+      <View style={{padding: 20, backgroundColor: "#fff"}}>
+        
+        <ProfileItem icon="person" label="Nume Prenume:" value="Moraru Vasile" />
+        <ProfileItem icon="alternate-email" label="Email:" value="email.test@gmail.com"/>
+        <ProfileItem icon="tag" label="Nr. cont:" value="57"/>
+        <ProfileItem icon="location-on" label="Adresa/Sector:" value="3"/>
+        <ProfileItem icon="qr-code" label="Nr. Contor:" value="45782954"/>
+        <ProfileItem icon="groups" label="Nr. persoane:" value="6"/>
+        
+      </View>
   )
 }
 
