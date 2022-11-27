@@ -6,7 +6,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import ProfileScreen from '../screens/ProfileScreen';
-import MessagesScreen from '../screens/MessagesScreen';
+import WaterScreen from '../screens/WaterScreen';
 import MomentsScreen from '../screens/MomentsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -43,7 +43,7 @@ const AppStack = () => {
       />
       <Drawer.Screen
         name="Apa"
-        component={MessagesScreen}
+        component={WaterScreen}
         options={{
           drawerIcon: ({color}) => (
             <Ionicons name="water-outline" size={22} color={color} />
