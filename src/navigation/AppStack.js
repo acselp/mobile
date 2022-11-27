@@ -20,6 +20,8 @@ const AppStack = () => {
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: true,
+        sceneContainerStyle: {backgroundColor: '#fff'},
+        headerStyle: {backgroundColor: '#fff'},
         drawerActiveBackgroundColor: '#aa18ea',
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: '#333',

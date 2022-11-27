@@ -115,18 +115,6 @@ const LoginScreen = ({navigation}) => {
             <TwitterSVG height={24} width={24} />
           </TouchableOpacity>
         </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginBottom: 30,
-          }}>
-          <Text>New to the app?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={{color: '#AD40AF', fontWeight: '700'}}> Register</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     </SafeAreaView>
   );
