@@ -31,7 +31,7 @@ const AppStack = () => {
       }}>
      
       <Drawer.Screen
-        name="Profile"
+        name="Profil"
         component={ProfileScreen}
         options={{
           drawerIcon: ({color}) => (
@@ -40,29 +40,29 @@ const AppStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Messages"
+        name="Apa"
         component={MessagesScreen}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="chatbox-ellipses-outline" size={22} color={color} />
+            <Ionicons name="water-outline" size={22} color={color} />
           ),
         }}
       />
       <Drawer.Screen
-        name="Moments"
+        name="Salubrizare"
         component={MomentsScreen}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="timer-outline" size={22} color={color} />
+            <Ionicons name="trash-outline" size={22} color={color} />
           ),
         }}
       />
       <Drawer.Screen
-        name="Settings"
+        name="Achitare Servicii"
         component={SettingsScreen}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="settings-outline" size={22} color={color} />
+            <Ionicons name="card-outline" size={22} color={color} />
           ),
         }}
       />
