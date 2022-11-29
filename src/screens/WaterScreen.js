@@ -75,8 +75,7 @@ const WaterScreen = () => {
 
 
                 <View>
-                <Ionicons name="water" size={70} color={"#2389da"} />
-
+                  <Ionicons style={{marginTop: -10, marginBottom: 10}} name="water" size={70} color={"#2389da"} />
                 </View>
 
 
@@ -93,9 +92,9 @@ const WaterScreen = () => {
                 </View>
               </View>
             </View>
-          <WaterItem label="Curenta" value="245 " />
+          <WaterItem grayBg={true} label="Curenta" value="245 " />
           <WaterItem label="Precedenta" value="233 " />
-          <WaterItem label="Tarif" tarif={true} value="17" />
+          <WaterItem grayBg={true} label="Tarif" tarif={true} value="17" />
 
 
           

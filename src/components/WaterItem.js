@@ -1,13 +1,22 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-
+import { useState, useEffect } from 'react';
 
 function WaterItem(props) {
 
+    let [bgColor, setBgColor] = useState('white');
+
+    
+
+    useEffect(() => {
+      if(props.grayBg) {
+        setBgColor("#f0f0f0");
+      }
+    }, [bgColor])
 
     return (
-        <View style={{flexDirection: "row", marginBottom: -30}}>
-          <View style={{display: "flex", justifyContent: "space-between", width: "100%", marginBottom: 10 ,flexDirection: "row", padding:20}}>
+        <View style={{flexDirection: "row", backgroundColor: bgColor}}>
+          <View style={{display: "flex", justifyContent: "space-between", width: "100%",flexDirection: "row", padding:20}}>
             <Text style={{color:"#000", fontFamily:"Roboto-Bold", fontSize: 20}}>
               {props.label}
             </Text>
