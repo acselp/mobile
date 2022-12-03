@@ -3,9 +3,10 @@ import { VictoryChart, VictoryGroup, VictoryBar, VictoryAxis } from 'victory-nat
 import WaterItem from '../components/WaterItem';
 import CustomButton from '../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StackActions } from '@react-navigation/native';
 
 
-const WaterScreen = () => {
+const WaterScreen = ({navigation}) => {
 	
   const chartTheme = {
     axis: {
@@ -25,8 +26,14 @@ const WaterScreen = () => {
     },
   };
 
+
+  const historyBtnHandler = () => {
+    navigation.navigate('WaterHistory');
+  }
+
 		return (
-      <ScrollView >
+      
+      <ScrollView style={{backgroundColor: "#fff"}}>
 			<View style={{backgroundColor: "#333440", margin: 15, borderRadius: 10}}>
         
 				<VictoryChart
@@ -62,7 +69,7 @@ const WaterScreen = () => {
             <View>
               <View style={{padding: 20, marginBottom: -30, justifyContent: "space-between", flexDirection: "row"}}>
                 <View>
-                  <Text>
+                  <Text  style={{color: "#000"}}>
                     Luna curentă
                   </Text>
                   <View style={{flexDirection: "row", justifyContent: 'center'}}>
@@ -80,7 +87,7 @@ const WaterScreen = () => {
 
 
                 <View>
-                  <Text>
+                  <Text style={{color: "#000"}}>
                     Total pe an
                   </Text>
                   <View style={{flexDirection: "row", justifyContent: 'center'}}>
@@ -100,7 +107,7 @@ const WaterScreen = () => {
           
 
           <View style={{padding: 15, paddingTop: 20}}>
-            <CustomButton label="Istoria tranzactiilor" />
+            <CustomButton label="Istoria tranzactiilor" onPress={historyBtnHandler} />
           </View>
             
         </View>

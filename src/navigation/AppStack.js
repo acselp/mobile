@@ -9,6 +9,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import WaterScreen from '../screens/WaterScreen';
 import MomentsScreen from '../screens/MomentsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import WaterNavigation from './WaterNavigation';
 
 import TabNavigator from './TabNavigator';
 
@@ -26,20 +27,22 @@ const AppStack = () => {
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: '#333',
         drawerLabelStyle: {
-          marginRight: -20,
+          marginRight: -25,
           fontFamily: 'Roboto-Medium',
           fontSize: 15,
         },
       }}>
+
       <Drawer.Screen
-        name="Apa"
-        component={WaterScreen}
+        name="Home"
+        component={TabNavigator}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="water-outline" size={22} color={color} />
+            <Ionicons name="home-outline" size={22} color={color} />
           ),
         }}
       />
+
       <Drawer.Screen
         name="Profil"
         component={ProfileScreen}
@@ -49,25 +52,39 @@ const AppStack = () => {
           ),
         }}
       />
+
+      <Drawer.Screen
+        name="Setări"
+        component={WaterNavigation}
+        options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name="settings-outline" size={22} color={color} />
+          ),
+        }}
+
+      />
+      
      
       <Drawer.Screen
-        name="Salubrizare"
+        name="Despre"
         component={MomentsScreen}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="trash-outline" size={22} color={color} />
+            <Ionicons name="information-circle-outline" size={22} color={color} />
           ),
         }}
       />
       <Drawer.Screen
-        name="Achitare Servicii"
+        name="Limba"
         component={SettingsScreen}
         options={{
           drawerIcon: ({color}) => (
-            <Ionicons name="card-outline" size={22} color={color} />
+            <Ionicons name="language-outline" size={22} color={color} />
           ),
         }}
       />
+
+      
     </Drawer.Navigator>
   );
 };

@@ -13,6 +13,13 @@ import AuthStack from './src/navigation/AuthStack';
 const Stack = createNativeStackNavigator();
 
 function App() {
+
+  const MyTheme = {
+    colors: {
+      background: 'white'
+    },
+  };
+
   return (
     
     <NavigationContainer>

@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { Text } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
 import CartScreen from '../screens/CartScreen';
@@ -10,28 +11,11 @@ import GameDetailsScreen from '../screens/GameDetailsScreen';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="GameDetails"
-        component={GameDetailsScreen}
-        options={({route}) => ({
-          title: route.params?.title,
-        })}
-      />
-    </Stack.Navigator>
-  );
-};
 
 const TabNavigator = () => {
   return (
@@ -43,36 +27,60 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: '#fff',
         tabBarActiveTintColor: 'yellow',
       }}>
+
       <Tab.Screen
         name="Home2"
-        component={HomeStack}
+        component={HomeScreen}
         options={({route}) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
             backgroundColor: '#AD40AF',
           },
           tabBarIcon: ({color, size}) => (
+            <>
             <Ionicons name="home-outline" color={color} size={size} />
+            <Text style={{color: "white"}}>Acasa</Text>
+            </>
           ),
         })}
       />
+
       <Tab.Screen
-        name="Cart"
+        name="Services"
         component={CartScreen}
         options={{
           tabBarBadge: 3,
           tabBarBadgeStyle: {backgroundColor: 'yellow'},
           tabBarIcon: ({color, size}) => (
-            <Feather name="shopping-bag" color={color} size={size} />
+            <>
+            <Ionicons name="card-outline" color={color} size={size} />
+            <Text style={{color: "white"}}>Servicii</Text>
+            </>
           ),
         }}
       />
       <Tab.Screen
-        name="Favorite"
+        name="Datorii"
         component={FavoriteScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="heart-outline" color={color} size={size} />
+            <>
+            <Ionicons name="newspaper-outline" color={color} size={size} />
+            <Text style={{color: "white"}}>Datorii</Text>
+            </>
+          ),
+        }}
+      />
+
+    <Tab.Screen
+        name="Achitari"
+        component={FavoriteScreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <>
+            <MaterialIcons name="receipt-long" color={color} size={size} />
+            <Text style={{color: "white"}}>Achitari</Text>
+            </>
           ),
         }}
       />
