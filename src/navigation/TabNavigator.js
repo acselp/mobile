@@ -5,7 +5,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { Text } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
-import CartScreen from '../screens/CartScreen';
+import ServicesScreen from '../screens/SericesScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 import GameDetailsScreen from '../screens/GameDetailsScreen';
 
@@ -22,14 +22,21 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarStyle: {backgroundColor: '#AD40AF'},
+        tabBarShowLabel: true,
+        tabBarStyle: {
+          backgroundColor: '#AD40AF'
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontFamily: 'Roboto-Medium',
+        },
         tabBarInactiveTintColor: '#fff',
         tabBarActiveTintColor: 'yellow',
-      }}>
+      }}
+      >
 
       <Tab.Screen
-        name="Home2"
+        name="Acasa"
         component={HomeScreen}
         options={({route}) => ({
           tabBarStyle: {
@@ -39,7 +46,6 @@ const TabNavigator = () => {
           tabBarIcon: ({color, size}) => (
             <>
             <Ionicons name="home-outline" color={color} size={size} />
-            <Text style={{color: "white"}}>Acasa</Text>
             </>
           ),
         })}
@@ -47,14 +53,13 @@ const TabNavigator = () => {
 
       <Tab.Screen
         name="Services"
-        component={CartScreen}
+        component={ServicesScreen}
         options={{
           tabBarBadge: 3,
           tabBarBadgeStyle: {backgroundColor: 'yellow'},
           tabBarIcon: ({color, size}) => (
             <>
             <Ionicons name="card-outline" color={color} size={size} />
-            <Text style={{color: "white"}}>Servicii</Text>
             </>
           ),
         }}
@@ -66,7 +71,6 @@ const TabNavigator = () => {
           tabBarIcon: ({color, size}) => (
             <>
             <Ionicons name="newspaper-outline" color={color} size={size} />
-            <Text style={{color: "white"}}>Datorii</Text>
             </>
           ),
         }}
@@ -79,7 +83,6 @@ const TabNavigator = () => {
           tabBarIcon: ({color, size}) => (
             <>
             <MaterialIcons name="receipt-long" color={color} size={size} />
-            <Text style={{color: "white"}}>Achitari</Text>
             </>
           ),
         }}

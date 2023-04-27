@@ -9,6 +9,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import AppStack from './src/navigation/AppStack';
 import AuthStack from './src/navigation/AuthStack';
+import { AuthProvider } from './src/context/AuthContext';
+import AppNav from './src/navigation/AppNav';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,11 +23,9 @@ function App() {
   };
 
   return (
-    
-    <NavigationContainer>
-      <AppStack /> 
-      {/* <AuthStack /> */}
-    </NavigationContainer>
+    <AuthProvider>
+      <AppNav />
+    </AuthProvider>
   );
 }
 

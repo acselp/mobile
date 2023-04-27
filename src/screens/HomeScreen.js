@@ -1,41 +1,44 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  ImageBackground,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import Feather from 'react-native-vector-icons/Feather';
+import React, { StyleSheet, View, ScrollView, Text } from 'react-native';
+import { VictoryChart, VictoryGroup, VictoryBar, VictoryAxis } from 'victory-native';
+import WaterItem from '../components/WaterItem';
+import CustomButton from '../components/CustomButton';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StackActions } from '@react-navigation/native';
 
-import BannerSlider from '../components/BannerSlider';
-import {windowWidth} from '../utils/Dimensions';
 
-import {freeGames, paidGames, sliderData} from '../model/data';
-import CustomSwitch from '../components/CustomSwitch';
-import ListItem from '../components/ListItem';
+const HomeScreen = ({navigation}) => {
+	
+  const chartTheme = {
+    axis: {
+      style: {
+        tickLabels: {
+          fill: '#ddd',
+          fontFamily: 'Roboto-Medium',
+          
+        },
+        ticks: {size: 15, stroke: 'transparent'},
+        axis: {stroke: "#adadad"},
+        grid: {stroke: "transparent"},
 
-export default function HomeScreen({navigation}) {
-  const [gamesTab, setGamesTab] = useState(1);
 
-  const renderBanner = ({item, index}) => {
-    return <BannerSlider data={item} />;
+
+      },
+    },
   };
 
-  const onSelectSwitch = value => {
-    setGamesTab(value);
-  };
 
-  return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-      <ScrollView style={{padding: 20}}>
-        
-        
+  const historyBtnHandler = () => {
+    navigation.navigate('WaterHistory');
+  }
 
+		return (
+      
+      <ScrollView style={{backgroundColor: "#fff"}}>
+			<Text style={{color: "black", padding: 20, fontSize: 25, fontWeight: "bold", paddingBottom: 5}}>
+          Servicii de asigurare cu apa
+        </Text>
       </ScrollView>
-    </SafeAreaView>
-  );
+		);
 }
+
+export default HomeScreen;
