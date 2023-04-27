@@ -9,6 +9,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [userToken, setUserToken] = useState(null);
+    const [userInfo, setUserInfo] = useState(null);
 
     const login = (email, password) => {
         setIsLoading(true);
@@ -18,14 +19,18 @@ export const AuthProvider = ({children}) => {
             'password': password
         })
         .then(res => {
-            console.log(res)
+            let userInfo = res.data;
+            
+            setUserInfo(userInfo);
+            setUserToken(userInfo.token);
+
+            AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+            AsyncStorage.setItem('userToken', userInfo.token);
         })
         .catch(e => {
             console.error(e);
         })
 
-
-        AsyncStorage.setItem('userToken', 'fsdfasdf');
         setIsLoading(false);
     }
 
@@ -33,14 +38,22 @@ export const AuthProvider = ({children}) => {
         setIsLoading(true);
         setUserToken(null);
         AsyncStorage.removeItem('userToken');
+        AsyncStorage.removeItem('userInfo');
         setIsLoading(false);
     }
 
     const isLoggedId = async() => {
         try {
             setIsLoading(true);
+            let userInfo = await AsyncStorage.getItem('userInfo');
             let userToken = await AsyncStorage.getItem('userToken');
-            setUserToken(userToken);
+            userInfo = JSON.parse(userInfo);
+            
+            if( userInfo ) {
+                setUserToken(userToken);
+                setUserInfo(userInfo);
+            }
+
             setIsLoading(false);
         }
         catch(e) {
