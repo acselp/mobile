@@ -23,8 +23,9 @@ import { Camera } from 'react-native-vision-camera';
 import { useCameraDevices } from 'react-native-vision-camera';
 import { BarcodeFormat } from 'vision-camera-code-scanner';
 import { useScanBarcodes } from 'vision-camera-code-scanner';
+import RNHoleView from 'react-native-hole-view';
 
-const HomeScreen = ({navigation}) => {
+export default HomeScreen = ({navigation}) => {
 
   const [value, setValue] = useState(0);
   const [errorBarcode, setErrorBarcode] = useState(false);
@@ -42,14 +43,15 @@ const HomeScreen = ({navigation}) => {
     setIsCameraActive(!isCameraActive);
   }
 
-  
-
-
 
 useEffect(() => {
   toggleActiveState();
   return () => {
-    barcodes;
+    if (barcodes && barcodes.length > 0) {
+      setBarcode(barcodes[0].displayValue);
+      setIsScanned(true);
+      setIsCameraActive(false);
+    }
   };
 }, [barcodes]);
 
@@ -114,6 +116,9 @@ const toggleActiveState = async () => {
   useEffect(() => {
     requestCameraPermission();
   }, []);
+  
+
+
 
 
   if (device == null) return <ActivityIndicator color={"black"} />;
@@ -124,14 +129,15 @@ const toggleActiveState = async () => {
       {/*lLoading-------------------------*/}
       {isLoading ? <LoadingOverlay/> : ""}
       {/*lLoading-------------------------*/}
-      {isCameraActive ? <Camera
+      {isCameraActive ? <><Camera
         style={StyleSheet.absoluteFill}
         device={device}
         isActive={true}
         frameProcessor={frameProcessor}
-        frameProcessorFps={5}
+        frameProcessorFps={1}
       />
-      
+  
+      </>
       :
      
       <ScrollView padding={20} style={{backgroundColor: "#fff"}}>
@@ -146,7 +152,7 @@ const toggleActiveState = async () => {
       <Stack>
         <FormControl.Label>Barcode</FormControl.Label>
           <Box display={"flex"} flexDirection={"row"}>
-            <Input flex={1} keyboardType={"numeric"} width={"auto"} onChangeText={val => {setBarcode(val)}} type="text" placeholder="barcode" />
+            <Input flex={1} keyboardType={"numeric"} width={"auto"} value={barcode} onChangeText={val => {setBarcode(val)}} type="text" placeholder="barcode" />
             <IconButton onPress={handleCamera} icon={<Ionicons name="barcode-outline" size={22} color={"#000"} /> } />
           </Box>
         <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
@@ -192,4 +198,3 @@ const toggleActiveState = async () => {
 		);
 }
 
-export default HomeScreen;
